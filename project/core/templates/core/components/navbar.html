@@ -1,0 +1,28 @@
+<nav style="margin-top: 10px;" class="navbar navbar-expand-lg navbar-light fixed-top" id="">
+    <div class="container px-4 px-lg-6">
+        <button style="margin-left: 300px;" class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul style="border: 2px solid white;" class="navbar-nav ms-auto fs-5 bg-primary rounded">
+                <li class="nav-item"><a style="color: white;" class="nav-link px-4" href="{% url 'core:home' %}">Home ></a></li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item"><a style="color: white;" class="nav-link px-4" href="{% url 'cliente:home' %}">Clientes ></a></li>
+                    <li class="nav-item"><a style="color: white;" class="nav-link px-4" href="{% url 'producto:home' %}">Productos ></a></li>
+                    <li class="nav-item"><a style="color: white;" class="nav-link px-4" href="{% url 'compra:home' %}">Compras ></a></li>
+                    <li class="nav-item"><a style="color: white; padding: 0px;" class="nav-link text-bg-danger rounded">{{ user.username }}</a></li>
+                    <li class="nav-item">
+                        <form action="{% url 'core:logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="nav-link text-bg-dark rounded">Logout</button>
+                        </form>
+                    </li>
+                {% else %}
+                    <li class="nav-item"><a style="color: white;" class="nav-link px-4" class="nav-link" href="{% url 'core:login' %}">Login</a></li>
+                    <li class="nav-item"><a style="color: white;" class="nav-link px-4" class="nav-link" href="{% url 'core:register' %}">Registrarse</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

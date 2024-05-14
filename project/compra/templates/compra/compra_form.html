@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    <div style="position: absolute; margin: 20px 0px; border: 2px solid white" class="fs-3 pg-lg-3 text-white bg-primary px-3 py-2 rounded">  
+        {% if form.instance.pk %}
+            Editar -
+        {% else %}
+            Crear -
+        {% endif %}
+        Compra
+    </div>
+{% endblock titulo %}
+
+{% block contenido %}
+
+    <div style="width: 7%; margin: 20px 100px; border: 2px solid white" class="fs-4 text-white bg-secondary rounded">
+        {% if form.instance.pk %}
+            <a style="text-decoration: none; color:white; padding: 10px;" href="{% url 'compra:compra_list' %}">Volver</a>
+        {% else %}
+            <a style="text-decoration: none; color:white; padding: 10px;" href="{% url 'compra:home' %}">Volver</a>
+        {% endif %}
+    </div>
+    
+    <form style="margin: 60px 100px;" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button style="position: absolute; margin: 20px 130px;"type="submit" class="btn btn-secondary">Guardar</button>
+    </form>
+
+{% endblock contenido %}

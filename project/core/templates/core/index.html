@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    {% include 'core/components/titles.html' with titulo="Base de datos - Django" %}
+{% endblock titulo %} 
+
+{% block contenido %}
+    <div style="position: absolute; margin: 80px 90px;">
+        {% if user.username %}
+            <h5 style="padding: 10px 360px; text-align: center; border: 2px solid white; margin-bottom: 60px;" class="text-white bg-danger rounded"> 
+                Bienvenido "{{ user.username }}"
+            </h5>
+        {% else %}
+            <h5 style="padding: 10px 360px; text-align: center; border: 2px solid white; margin-bottom: 60px;" class="text-white bg-danger rounded"> 
+                Sesión no iniciada
+            </h5>
+        {% endif %}
+        <h5 style="padding: 10px 240px; text-align: center; border: 2px solid white" class="text-white bg-secondary rounded"> 
+        Base de datos creada para registrar compras de productos por cliente 
+        </h5>
+        <h5 style="padding: 10px 360px; text-align: center; border: 2px solid white" class="text-white bg-secondary rounded"> 
+        Permite crear - moficiar - detallar - eliminar la información
+        </h5>
+    </div>
+{% endblock contenido %}
+

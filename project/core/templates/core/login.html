@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    {% include 'core/components/titles.html' with titulo="Login - Usuario" %}
+{% endblock titulo %}
+
+{% block contenido %}
+    <form style="position: absolute; margin: 100px 90px; padding: 10px 20px; border: 2px solid white" class="text-white bg-secondary rounded" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="next" value="{% url 'core:home' %}">
+        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+        <a href="{% url 'core:home' %}" class="btn btn-danger">Cancelar</a>
+    </form>
+
+{% endblock contenido %}

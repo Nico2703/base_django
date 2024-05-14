@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %}
+
+{%  block titulo %}
+    {% include 'core/components/titles.html' with titulo="Compras" %}
+{% endblock titulo %}
+
+{% block contenido %}
+    <div style="position: absolute; margin: 60px 55px;">
+        <ul style="display:flex; flex-direction: column;">
+            <a class="text-white bg-secondary rounded" style="text-decoration: none; color:white; padding: 10px 10px; margin: 10px 0px; border: 2px solid white" href="{% url 'compra:compra_create' %}">Agregar - Compras</a>
+            <a class="text-white bg-secondary rounded" style="text-decoration: none; color:white; padding: 10px 10px; margin: 10px 0px; border: 2px solid white" href="{% url 'compra:compra_list' %}">Listar - Modificar - Compras</a>
+        </ul>
+    </div>
+{% endblock contenido %}
+

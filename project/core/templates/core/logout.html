@@ -1,0 +1,9 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    {% include 'core/components/titles.html' with titulo="Logout - Usuario" %}
+{% endblock titulo %}
+
+{% block contenido %}
+    <h2 style="position: absolute; margin: 100px 90px; border: 2px solid white" class="text-white bg-secondary rounded">Has cerrado sesión</h2>
+{% endblock contenido %}

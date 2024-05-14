@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    {% include 'core/components/titles.html' with titulo="Detalle - Compra" %}
+{% endblock titulo %}
+
+{% block contenido %}
+
+    <div style="width: 7%; margin: 20px 0px 20px 88px; border: 2px solid white" class="fs-4 text-white bg-secondary rounded">
+        <a style="text-decoration: none; color:white; padding: 10px;" href="{% url 'compra:compra_list' %}">Volver</a>
+    </div>
+
+    <ul style="list-style: none; width: 40%;">
+        <li style="margin: 10px 55px; padding: 0px 20px; border: 2px solid white" class="text-white bg-secondary rounded">
+            Cliente: {{object.cliente.apellido}}, {{object.cliente.nombre}}</li>
+        <li style="margin: 10px 55px; padding: 0px 20px; border: 2px solid white" class="text-white bg-secondary rounded">
+            Producto: {{ object.producto.nombre }} - {{ object.producto.descripcion }}</li>
+        <li style="margin: 10px 55px; padding: 0px 20px; border: 2px solid white" class="text-white bg-secondary rounded">
+            Precio: {{ object.precio }}</li>
+        <li style="margin: 10px 55px; padding: 0px 20px; border: 2px solid white" class="text-white bg-secondary rounded">
+            Vendedor: {{ object.vendedor }}</li>
+        <li style="margin: 10px 55px; padding: 0px 20px; border: 2px solid white" class="text-white bg-secondary rounded">
+            Fecha: {{ object.fecha }}</li>
+    </ul>
+{% endblock contenido %}

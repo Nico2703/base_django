@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}
+
+{%  block titulo %}
+    {% include 'core/components/titles.html' with titulo="Listar - Compras" %}
+{% endblock titulo %}
+
+{% block contenido %}
+<div style="display: flex; flex-direction: column;">
+    <div style="margin: 20px 90px;">
+        <form action="{% url 'compra:compra_list' %}" method="get">
+            <input type="text" name="consulta" placeholder="Buscar...">
+        </form>
+    </div>
+
+    <div style="width: 7%; margin: 0px 0px 20px 88px; border: 2px solid white; text-align: center;" class="fs-4 text-white bg-secondary rounded">
+        <a style="text-decoration: none; color:white; padding: 10px;" href="{% url 'compra:home' %}">Volver</a>
+    </div>
+
+    <ul style="list-style: none;">
+        {% for compra in object_list %}
+            <li style="width: 60%; margin: 10px 55px; padding-left: 10px; border: 2px solid white;" class="text-white bg-secondary rounded">
+                {{ compra.cliente.apellido }} - {{ compra.producto.nombre }}
+                <a style="text-decoration: none; color: black; margin-left: 60px; padding: 5px;" class="btn btn-info" href="{% url 'compra:compra_detail' compra.id %}"> Detalle </a>
+                <a style="text-decoration: none; color: black; padding: 5px;" class="btn btn-info" href="{% url 'compra:compra_update' compra.id %}"> Editar </a>
+                <a style="text-decoration: none; color: black; padding: 5px;" class="btn btn-info" href="{% url 'compra:compra_delete' compra.id %}"> Eliminar </a>
+            </li>
+        {% endfor %} 
+    </ul>
+</div>
+{% endblock contenido %}

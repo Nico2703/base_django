@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    {% include 'core/components/titles.html' with titulo="Registrar - Usuario" %}
+{% endblock titulo %}
+
+{% block contenido %}
+
+    <form style="position: absolute; margin: 100px 90px; padding: 10px 20px; border: 2px solid white" class="text-white bg-secondary rounded" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Registrar</button>
+    </form>
+
+
+{% endblock contenido %}

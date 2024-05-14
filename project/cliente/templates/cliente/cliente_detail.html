@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    {% include 'core/components/titles.html' with titulo="Detalle - Cliente" %}
+{% endblock titulo %}
+
+{% block contenido %}
+
+    <div style="width: 7%; margin: 20px 0px 20px 88px; border: 2px solid white" class="fs-4 text-white bg-secondary rounded">
+        <a style="text-decoration: none; color:white; padding: 10px;" href="{% url 'cliente:cliente_list' %}">Volver</a>
+    </div>
+
+    <ul style="list-style: none; width: 40%;">
+        <li style="margin: 10px 55px; padding: 0px 20px; border: 2px solid white" class="text-white bg-secondary rounded">
+            Nombre: {{object.nombre }}</li>
+        <li style="margin: 10px 55px; padding: 0px 20px; border: 2px solid white" class="text-white bg-secondary rounded">
+            Apellido: {{ object.apellido }}</li>
+        <li style="margin: 10px 55px; padding: 0px 20px; border: 2px solid white" class="text-white bg-secondary rounded">
+            Nacimiento: {{ object.nacimiento }}</li>
+    </ul>
+{% endblock contenido %}
