@@ -18,7 +18,7 @@
 
     <ul style="list-style: none;">
         {% for producto in object_list %}
-            <li style="width: 35%; margin: 10px 55px; padding-left: 10px; border: 2px solid white;" class="text-white bg-secondary rounded">
+            <li style="width: 45%; margin: 10px 55px; padding-left: 10px; border: 2px solid white;" class="text-white bg-secondary rounded">
                 {{ producto.nombre }}
                 <a style="text-decoration: none; color: black; margin-left: 60px; padding: 5px;" class="btn btn-info" href="{% url 'producto:producto_detail' producto.id %}"> Detalle </a>
                 <a style="text-decoration: none; color: black; padding: 5px;" class="btn btn-info" href="{% url 'producto:producto_update' producto.id %}"> Editar  </a>
