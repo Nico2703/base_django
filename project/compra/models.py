@@ -35,9 +35,6 @@ class Compra(models.Model):
     def clean(self):
         if self.cantidad > self.producto.cantidad:
             raise ValidationError("La cantidad vendida no puede ser mayor a la cantidad disponible")
-        # else:
-        #     self.producto.cantidad -= self.cantidad
-        #     self.producto.save()
 
     def save(self, *args, **kwargs):
         self.precio_total = self.producto.precio * self.cantidad

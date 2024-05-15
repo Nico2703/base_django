@@ -22,7 +22,7 @@ class CompraList(ListView):
     def get_queryset(self) -> QuerySet:
         if self.request.GET.get("consulta"):
             consulta = self.request.GET.get("consulta")
-            object_list = models.Compra.objects.filter(nombre__icontains=consulta)
+            object_list = models.Compra.objects.filter(cliente__apellido__icontains=consulta)
         else:
             object_list = models.Compra.objects.all()
         return object_list
