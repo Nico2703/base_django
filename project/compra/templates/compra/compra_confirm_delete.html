@@ -10,7 +10,6 @@
     </div>
 
     <p style="margin: 10px 90px;" class="fs-5 fst-italic">¿Confirma eliminar la compra de "{{ compra.cliente.apellido}}, {{ compra.cliente.nombre}}" por un/una "{{ compra.producto.nombre}}"?</p>
-
     <form style="margin: 0px 90px;" method="post">
         {% csrf_token %}
         <button type="submit" class="btn btn-danger">Confirmar</button>

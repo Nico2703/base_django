@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from . import models, forms
+from .models import Compra, Producto
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.db.models.query import QuerySet
@@ -31,7 +32,6 @@ class CompraCreate(CreateView):
     form_class = forms.CompraCategoriaForms
     success_url = reverse_lazy("compra:home")
 
-    
 class CompraUpdate(UpdateView):
     model = models.Compra
     form_class = forms.CompraCategoriaForms
@@ -43,3 +43,4 @@ class CompraDetail(DetailView):
 class CompraDelete(DeleteView):
     model = models.Compra
     success_url = reverse_lazy("compra:compra_list")
+    

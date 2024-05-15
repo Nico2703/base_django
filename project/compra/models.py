@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from django.forms import ValidationError
 
+
 class Vendedor(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.SET_NULL, null=True, related_name="vendedor")
     avatar = models.ImageField(upload_to="avatares", null=True, blank=True)
@@ -25,7 +26,7 @@ class Compra(models.Model):
     fecha = models.DateTimeField(default=timezone.now, editable=False)
 
     def __str__(self):
-        return f"{self.cliente}, {self.producto}, {self.precio}, {self.vendedor}, {self.fecha}"
+        return f"{self.cliente}, {self.producto}, {self.cantidad}, {self.precio_total}, {self.vendedor}, {self.fecha}"
     
     class Meta:
         verbose_name = "compra"
@@ -34,6 +35,9 @@ class Compra(models.Model):
     def clean(self):
         if self.cantidad > self.producto.cantidad:
             raise ValidationError("La cantidad vendida no puede ser mayor a la cantidad disponible")
+        # else:
+        #     self.producto.cantidad -= self.cantidad
+        #     self.producto.save()
 
     def save(self, *args, **kwargs):
         self.precio_total = self.producto.precio * self.cantidad

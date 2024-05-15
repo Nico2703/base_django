@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    {% include 'core/components/titles.html' with titulo="Acerca del creador" %}
+{% endblock titulo %}
+
+{% block contenido %}
+        <h4 style="position: absolute; margin: 100px 90px; border: 2px solid white" class="text-white bg-secondary rounded">
+            Este proyecto simula una aplicación web que puede ser destinada a comercios en general.</h4>
+        <h4 style="position: absolute; margin: 160px 90px; border: 2px solid white" class="text-white bg-secondary rounded">
+            Permite crear usuarios y realizar CRUD sobre los clientes, compras y productos registrados.</h4>
+        <h4 style="position: absolute; margin: 220px 90px; border: 2px solid white" class="text-white bg-secondary rounded">
+            Se permite la navegación entre páginas.</h4>
+        <h4 style="position: absolute; margin: 220px 90px; border: 2px solid white" class="text-white bg-secondary rounded">
+            Se ha buscado crear una página simple y funcional.</h4>
+        <h4 style="position: absolute; margin: 280px 90px; border: 2px solid white" class="text-white bg-secondary rounded">
+            Página creada por Nicolás Ferrand como proyecto final.</h4>
+        <h4 style="position: absolute; margin: 340px 90px; border: 2px solid white" class="text-white bg-secondary rounded">
+            Curso Python - Coderhouse.</h4>
+
+{% endblock contenido %}

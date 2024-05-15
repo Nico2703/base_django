@@ -10,6 +10,8 @@ from .forms import CustomAuthenticationForm, CustomUserCreationForm
 def home(request):
     return render(request, "core/index.html")
 
+def acerca(request):
+    return render(request, "core/acerca.html")
 
 class CustomLoginView(LoginView):
     authentication_form = CustomAuthenticationForm
