@@ -39,7 +39,7 @@ class ProductoUpdate(UpdateView):
 class ProductoDetail(DetailView):
     model = models.Producto
 
-class ProductoDelete(DeleteView):
+class ProductoDelete(LoginRequiredMixin, DeleteView):
     model = models.Producto
     success_url = reverse_lazy("producto:producto_list")
 

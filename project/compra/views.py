@@ -40,7 +40,7 @@ class CompraUpdate(UpdateView):
 class CompraDetail(DetailView):
     model = models.Compra
 
-class CompraDelete(DeleteView):
+class CompraDelete(LoginRequiredMixin, DeleteView):
     model = models.Compra
     success_url = reverse_lazy("compra:compra_list")
     

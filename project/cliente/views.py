@@ -40,6 +40,6 @@ class ClienteUpdate(UpdateView):
 class ClienteDetail(DetailView):
     model = models.Cliente
 
-class ClienteDelete(DeleteView):
+class ClienteDelete(LoginRequiredMixin, DeleteView):
     model = models.Cliente
     success_url = reverse_lazy("cliente:cliente_list")
