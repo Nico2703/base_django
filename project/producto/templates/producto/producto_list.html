@@ -21,8 +21,10 @@
             <li style="width: 45%; margin: 10px 55px; padding-left: 10px; border: 2px solid white;" class="text-white bg-secondary rounded">
                 {{ producto.nombre }}
                 <a style="text-decoration: none; color: black; margin-left: 60px; padding: 5px;" class="btn btn-info" href="{% url 'producto:producto_detail' producto.id %}"> Detalle </a>
-                <a style="text-decoration: none; color: black; padding: 5px;" class="btn btn-info" href="{% url 'producto:producto_update' producto.id %}"> Editar  </a>
-                <a style="text-decoration: none; color: black; padding: 5px;" class="btn btn-info" href="{% url 'producto:producto_delete' producto.id %}"> Eliminar </a>
+                {% if user.is_superuser %}
+                    <a style="text-decoration: none; color: black; padding: 5px;" class="btn btn-info" href="{% url 'producto:producto_update' producto.id %}"> Editar  </a>
+                    <a style="text-decoration: none; color: black; padding: 5px;" class="btn btn-info" href="{% url 'producto:producto_delete' producto.id %}"> Eliminar </a>
+                {% endif %}
             </li>
         {% endfor %} 
     </ul>

@@ -21,8 +21,10 @@
             <li style="width: 60%; margin: 10px 55px; padding-left: 10px; border: 2px solid white;" class="text-white bg-secondary rounded">
                 {{ compra.cliente.apellido }} - {{ compra.producto.nombre }}
                 <a style="text-decoration: none; color: black; margin-left: 60px; padding: 5px;" class="btn btn-info" href="{% url 'compra:compra_detail' compra.id %}"> Detalle </a>
-                <a style="text-decoration: none; color: black; padding: 5px;" class="btn btn-info" href="{% url 'compra:compra_update' compra.id %}"> Editar </a>
-                <a style="text-decoration: none; color: black; padding: 5px;" class="btn btn-info" href="{% url 'compra:compra_delete' compra.id %}"> Eliminar </a>
+                {% if user.is_superuser %}
+                    <a style="text-decoration: none; color: black; padding: 5px;" class="btn btn-info" href="{% url 'compra:compra_update' compra.id %}"> Editar </a>
+                    <a style="text-decoration: none; color: black; padding: 5px;" class="btn btn-info" href="{% url 'compra:compra_delete' compra.id %}"> Eliminar </a>
+                {% endif %}
             </li>
         {% endfor %} 
     </ul>

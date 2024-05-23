@@ -21,9 +21,11 @@
             <li style="width: 30%; margin: 10px 55px; padding-left: 10px; border: 2px solid white" class="text-white bg-secondary rounded">
                 {{ cliente.nombre }}
                 <a style="text-decoration: none; color: black; margin-left: 60px; padding: 5px;" class="btn btn-info" href="{% url 'cliente:cliente_detail' cliente.id %}"> Detalle </a>
-                <a style="text-decoration: none; color: black; padding: 5px;" class= "btn btn-info" href="{% url 'cliente:cliente_update' cliente.id %}"> Editar  </a>
-                <a style="text-decoration: none; color: black; padding: 5px;" class= "btn btn-info" href="{% url 'cliente:cliente_delete' cliente.id %}">Eliminar </a>
-            </li>
+                {% if user.is_superuser %}
+                    <a style="text-decoration: none; color: black; padding: 5px;" class= "btn btn-info" href="{% url 'cliente:cliente_update' cliente.id %}"> Editar  </a>
+                    <a style="text-decoration: none; color: black; padding: 5px;" class= "btn btn-info" href="{% url 'cliente:cliente_delete' cliente.id %}">Eliminar </a>
+                {% endif %}
+                </li>
         {% endfor %} 
     </ul>
 </div>
